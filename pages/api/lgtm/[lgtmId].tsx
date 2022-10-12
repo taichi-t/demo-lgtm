@@ -26,6 +26,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const selector = await page?.$("#target");
   const buffer = await selector?.screenshot({
     path: "page-ss.png",
+    quality: 50,
   });
   await browser?.close();
   res.setHeader("Content-Type", "image/png");
