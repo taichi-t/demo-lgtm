@@ -10,7 +10,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       executablePath: puppeteer.executablePath(),
       ignoreDefaultArgs: ["--disable-extensions"],
     });
-    console.log("puppeteer.executablePath()", puppeteer.executablePath());
   } catch (err) {
     throw new Error(`${err}`);
   }
@@ -18,7 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const page = await browser?.newPage();
   await page?.setViewport({
     width: 320,
-    height: await page?.evaluate(() => document.body.clientHeight),
+    height: 1000,
   });
   await page?.goto(`${process.env.CLIENT_BASE_URL}/lgtm/${lgtmId}`, {
     waitUntil: "load",
