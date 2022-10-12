@@ -10,6 +10,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       executablePath: puppeteer.executablePath(),
       ignoreDefaultArgs: ["--disable-extensions"],
     });
+    console.log("puppeteer.executablePath()", puppeteer.executablePath());
   } catch (err) {
     console.error(err);
   }
