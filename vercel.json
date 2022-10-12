@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/lgtm/*.ts": {
+      "maxDuration": 60
+    }
+  }
+}
