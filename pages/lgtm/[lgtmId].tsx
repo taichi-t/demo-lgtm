@@ -11,7 +11,10 @@ const LGTM = () => {
         ogImage={`${process.env.NEXT_PUBLIC_BASE_URL}/api/lgtm/${lgtmId}`}
         url={`${process.env.NEXT_PUBLIC_BASE_URL}/lgtm/${lgtmId}`}
       ></SEO>
-      <div style={{ position: "relative" }} id="target">
+      <div
+        id="target"
+        style={{ width: "100%", height: "100%", position: "relative" }}
+      >
         <img
           src={`https://image.lgtmoon.dev/${lgtmId}`}
           width="100%"
@@ -32,7 +35,7 @@ const LGTM = () => {
         >
           {`
             
-            ウェーーーーーーーーーイ（悟の鳴き声）
+            ウェーーーーーーーーーイ（悟先輩の鳴き声）
           `}
         </p>
       </div>
