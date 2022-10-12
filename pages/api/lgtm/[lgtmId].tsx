@@ -6,6 +6,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const browser = await puppeteer.launch({
     headless: true,
     executablePath: puppeteer.executablePath(),
+    ignoreDefaultArgs: ["--disable-extensions"],
   });
   const page = await browser.newPage();
   await page.goto(`${process.env.CLIENT_BASE_URL}/lgtm/${lgtmId}`, {
