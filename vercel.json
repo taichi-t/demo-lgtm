@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/lgtm/*.ts": {
+    "api/lgtm/*.tsx": {
       "maxDuration": 10
     }
   }
