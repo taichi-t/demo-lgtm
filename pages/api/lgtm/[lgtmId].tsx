@@ -12,7 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     });
     console.log("puppeteer.executablePath()", puppeteer.executablePath());
   } catch (err) {
-    console.error(err);
+    throw new Error(`${err}`);
   }
 
   const page = await browser?.newPage();
