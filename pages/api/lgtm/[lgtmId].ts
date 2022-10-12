@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import puppeteer from "puppeteer-core";
-import chrome from "chrome-aws-lambda";
+import type { Browser } from "puppeteer-core";
+const puppeteer = require("puppeteer-core");
+const chrome = require("chrome-aws-lambda");
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const lgtmId = req.query.lgtmId;
-  let browser: puppeteer.Browser | undefined = undefined;
+  let browser: Browser | undefined = undefined;
   try {
     browser = await puppeteer.launch({
       args: chrome.args,
