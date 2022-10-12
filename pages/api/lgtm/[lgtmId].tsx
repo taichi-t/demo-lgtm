@@ -16,11 +16,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const page = await browser?.newPage();
+  await page?.setViewport({
+    width: 320,
+    height: await page?.evaluate(() => document.body.clientHeight),
+  });
   await page?.goto(`${process.env.CLIENT_BASE_URL}/lgtm/${lgtmId}`, {
     waitUntil: "load",
   });
   const selector = await page?.$("#target");
-  const buffer = await selector?.screenshot({ path: "page-ss.png" });
+  const buffer = await selector?.screenshot({
+    path: "page-ss.png",
+  });
   await browser?.close();
   res.setHeader("Content-Type", "image/png");
   res.setHeader(
