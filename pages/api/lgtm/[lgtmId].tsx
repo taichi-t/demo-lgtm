@@ -1,9 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-const puppeteer = require("puppeteer");
+import puppeteer from "puppeteer";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const lgtmId = req.query.lgtmId;
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    executablePath: puppeteer.executablePath(),
+  });
   const page = await browser.newPage();
   await page.goto(`${process.env.CLIENT_BASE_URL}/lgtm/${lgtmId}`, {
     waitUntil: "load",
